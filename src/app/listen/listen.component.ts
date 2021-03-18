@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-listen',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListenComponent implements OnInit {
 
-  constructor() { }
+  message = '';
 
-  ngOnInit(): void {
+  constructor(private db: AngularFireDatabase) {
   }
 
+  async ngOnInit(): Promise<void> {
+    await this.getMessage();
+  }
+
+  async getMessage(): Promise<void> {
+    const message: Observable<any> = this.db.object('dormunication/message').valueChanges();
+
+    message.subscribe(data => {
+      this.message = data;
+    });
+  }
 }

@@ -12,6 +12,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import {EditComponent} from './edit/edit.component';
 import {FormsModule} from '@angular/forms';
+import {HeaderComponent} from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     WelcomeComponent,
     PublishComponent,
     ListenComponent,
-    EditComponent
+    EditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

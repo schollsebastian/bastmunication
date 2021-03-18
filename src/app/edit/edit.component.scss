@@ -1,0 +1,66 @@
+:host {
+  width: 80%;
+  height: 80%;
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+  div {
+    width: 15vw;
+    margin: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 0 0 .75vh 0;
+      padding: .5vw;
+      box-shadow: 1px 1px 9px 0px #dbdbdb;
+      background: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid lightgray;
+      border-radius: 5px;
+      transition: border-color 300ms ease-in-out;
+      font-size: 110%;
+    }
+
+    input:focus {
+      border-color: #76c3bd;
+    }
+
+    button {
+      margin: .4vw;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 7px;
+      outline: none;
+      text-decoration: none;
+      background: transparent;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: all 250ms ease-in-out;
+    }
+
+    .green {
+      background: #71cca62b;
+      color: #72cca7;
+    }
+
+    .green:hover {
+      background: #72cca7;
+      color: #fff;
+    }
+
+    .red {
+      background: #dc56562b;
+      color: #dc5656;
+    }
+
+    .red:hover {
+      background: #dc5656;
+      color: #fff;
+    }
+  }
+}

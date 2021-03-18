@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {AngularFireDatabase} from '@angular/fire/database';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-publish',
@@ -9,9 +10,24 @@ import {AngularFireDatabase} from '@angular/fire/database';
 })
 export class PublishComponent implements OnInit {
 
+  messages: string[] = [];
+
   constructor(private db: AngularFireDatabase) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.getMessages();
+  }
+
+  async getMessages(): Promise<void> {
+    const messages: Observable<any[]> = this.db.list('dormunication/messages').valueChanges();
+
+    messages.subscribe(data => {
+      this.messages = data;
+    });
+  }
+
+  async publish(message: string): Promise<void> {
+    await this.db.object('dormunication/message').set(message);
   }
 }

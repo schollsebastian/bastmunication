@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PublishComponent } from './publish/publish.component';
+import { ListenComponent } from './listen/listen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PublishComponent
+    PublishComponent,
+    ListenComponent
   ],
   imports: [
     BrowserModule,

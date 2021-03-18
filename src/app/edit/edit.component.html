@@ -1,1 +1,10 @@
-<p>edit works!</p>
+<div>
+  <input [(ngModel)]="addMessageContent" type="text">
+  <button (click)="addMessage()" type="button">Create</button>
+</div>
+
+<div *ngFor="let msg of messages">
+  <input [(ngModel)]="msg.content" type="text">
+  <button (click)="updateMessage(msg)" type="button">Update</button>
+  <button (click)="removeMessage(msg)" type="button">Remove</button>
+</div>

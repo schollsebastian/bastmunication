@@ -37,13 +37,17 @@ export class EditComponent implements OnInit {
   }
 
   addMessage(): void {
-    this.db.list('dormunication/messages').push(this.addMessageContent);
+    if (this.addMessageContent.trim().length !== 0) {
+      this.db.list('dormunication/messages').push(this.addMessageContent);
 
-    this.addMessageContent = '';
+      this.addMessageContent = '';
+    }
   }
 
   updateMessage(msg: Message): void {
-    this.db.list('dormunication/messages').set(msg.key, msg.content);
+    if (msg.content.trim().length !== 0) {
+      this.db.list('dormunication/messages').set(msg.key, msg.content);
+    }
   }
 
   removeMessage(msg: Message): void {

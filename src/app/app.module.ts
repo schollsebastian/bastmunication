@@ -7,6 +7,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PublishComponent } from './publish/publish.component';
 import { ListenComponent } from './listen/listen.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,9 @@ import { ListenComponent } from './listen/listen.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'dormunication'),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

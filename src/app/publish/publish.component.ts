@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
   selector: 'app-publish',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase) {
+  }
 
   ngOnInit(): void {
   }
-
 }

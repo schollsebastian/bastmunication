@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {PublishComponent} from './publish/publish.component';
+import {ListenComponent} from './listen/listen.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'publish',
     component: PublishComponent
+  },
+  {
+    path: 'listen',
+    component: ListenComponent
   }
 ];
 

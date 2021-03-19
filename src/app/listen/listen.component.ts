@@ -20,9 +20,15 @@ export class ListenComponent implements OnInit {
 
   async getMessage(): Promise<void> {
     const message: Observable<any> = this.db.object('dormunication/message').valueChanges();
+    let timeout: any;
 
     message.subscribe(data => {
+      clearTimeout(timeout);
       this.message = data;
+
+      timeout = setTimeout(() => {
+        this.message = '';
+      }, 15 * 1000);
     });
   }
 }

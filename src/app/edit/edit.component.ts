@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {AngularFireDatabase} from '@angular/fire/database';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 import Message from '../Message';
 

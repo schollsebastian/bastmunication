@@ -1,1 +1,1 @@
-<p (click)="publish(msg)" *ngFor="let msg of messages">{{ msg }}</p>
+<p (click)="publish(msg)" *ngFor="let msg of messages" [class.animate]="toAnimate === msg">{{ msg }}</p>

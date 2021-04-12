@@ -23,8 +23,14 @@ export class ListenComponent implements OnInit {
     const message: Observable<any> = this.db.object('dormunication/message').valueChanges();
     let timeout: any;
 
-    const sound = new Howl({
+    let sound = new Howl({
       src: ['assets/notification.mp3']
+    });
+
+    this.db.object('dormunication/notification').valueChanges().subscribe((path) => {
+      sound = new Howl({
+        src: [path + '']
+      });
     });
 
     message.subscribe(data => {

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class PublishComponent implements OnInit {
 
   messages: string[] = [];
+  toAnimate = '';
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -28,6 +29,13 @@ export class PublishComponent implements OnInit {
   }
 
   async publish(message: string): Promise<void> {
-    await this.db.object('dormunication/message').set(message);
+    await this.db.object('dormunication/message').set(message).then(() => {
+
+      this.toAnimate = message;
+
+      setTimeout(() => {
+        this.toAnimate = '';
+      }, 750);
+    });
   }
 }

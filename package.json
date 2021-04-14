@@ -1,10 +1,10 @@
 {
-  "name": "dormunication",
+  "name": "bastmunication",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href /dormunication/",
+    "build": "ng build --prod --base-href /bastmunication/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

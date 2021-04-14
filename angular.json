@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dormunication": {
+    "bastmunication": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dormunication",
+            "outputPath": "dist/bastmunication",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dormunication:build"
+            "browserTarget": "bastmunication:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dormunication:build:production"
+              "browserTarget": "bastmunication:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dormunication:build"
+            "browserTarget": "bastmunication:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dormunication:serve"
+            "devServerTarget": "bastmunication:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dormunication:serve:production"
+              "devServerTarget": "bastmunication:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "dormunication"
+  "defaultProject": "bastmunication"
 }

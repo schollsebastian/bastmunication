@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
   }
 
   async getMessages(): Promise<void> {
-    const messages: Observable<any[]> = this.db.list('dormunication/messages').snapshotChanges();
+    const messages: Observable<any[]> = this.db.list('bastmunication/messages').snapshotChanges();
 
     messages.subscribe(data => {
       this.messages = [];
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
 
   addMessage(): void {
     if (this.addMessageContent.trim().length !== 0) {
-      this.db.list('dormunication/messages').push(this.addMessageContent);
+      this.db.list('bastmunication/messages').push(this.addMessageContent);
 
       this.addMessageContent = '';
     }
@@ -46,11 +46,11 @@ export class EditComponent implements OnInit {
 
   updateMessage(msg: Message): void {
     if (msg.content.trim().length !== 0) {
-      this.db.list('dormunication/messages').set(msg.key, msg.content);
+      this.db.list('bastmunication/messages').set(msg.key, msg.content);
     }
   }
 
   removeMessage(msg: Message): void {
-    this.db.list('dormunication/messages').set(msg.key, null);
+    this.db.list('bastmunication/messages').set(msg.key, null);
   }
 }

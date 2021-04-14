@@ -26,7 +26,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, 'dormunication'),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'bastmunication'),
     AngularFireDatabaseModule,
     FormsModule
   ],

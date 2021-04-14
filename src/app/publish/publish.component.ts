@@ -21,7 +21,7 @@ export class PublishComponent implements OnInit {
   }
 
   async getMessages(): Promise<void> {
-    const messages: Observable<any[]> = this.db.list('dormunication/messages').valueChanges();
+    const messages: Observable<any[]> = this.db.list('bastmunication/messages').valueChanges();
 
     messages.subscribe(data => {
       this.messages = data;
@@ -29,7 +29,7 @@ export class PublishComponent implements OnInit {
   }
 
   async publish(message: string): Promise<void> {
-    await this.db.object('dormunication/message').set(message).then(() => {
+    await this.db.object('bastmunication/message').set(message).then(() => {
 
       this.toAnimate = message;
 

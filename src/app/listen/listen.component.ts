@@ -20,14 +20,14 @@ export class ListenComponent implements OnInit {
   }
 
   async getMessage(): Promise<void> {
-    const message: Observable<any> = this.db.object('dormunication/message').valueChanges();
+    const message: Observable<any> = this.db.object('bastmunication/message').valueChanges();
     let timeout: any;
 
     let sound = new Howl({
       src: ['assets/notification.mp3']
     });
 
-    this.db.object('dormunication/notification').valueChanges().subscribe((path) => {
+    this.db.object('bastmunication/notification').valueChanges().subscribe((path) => {
       sound = new Howl({
         src: [path + '']
       });

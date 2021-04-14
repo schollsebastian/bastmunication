@@ -1,1 +1,1 @@
-<p (click)="publish(msg)" *ngFor="let msg of messages" [class.animate]="toAnimate === msg">{{ msg }}</p>
+<app-publish-part *ngFor="let c of colors" [color]="c.color" [style]="'background: ' + c.color"></app-publish-part>

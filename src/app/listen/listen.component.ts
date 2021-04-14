@@ -11,6 +11,8 @@ import { Howl } from 'howler';
 export class ListenComponent implements OnInit {
 
   message = '';
+  colors: any[] = [];
+  color: any;
 
   constructor(private db: AngularFireDatabase) {
   }
@@ -27,15 +29,21 @@ export class ListenComponent implements OnInit {
       src: ['assets/notification.mp3']
     });
 
-    this.db.object('dormunication/notification').valueChanges().subscribe((path) => {
-      sound = new Howl({
-        src: [path + '']
-      });
+    this.db.list('dormunication/colors').valueChanges().subscribe((colors) => {
+      this.colors = colors;
     });
 
     message.subscribe(data => {
       clearTimeout(timeout);
-      this.message = data;
+      this.message = data.message;
+
+      this.color = this.colors.filter(c => c.color === data.color)[0];
+      const path = this.color.sound;
+
+      sound = new Howl({
+        src: [path]
+      });
+
       sound.play();
 
       timeout = setTimeout(() => {

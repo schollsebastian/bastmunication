@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { PublishPartComponent } from './publish-part/publish-part.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     PublishComponent,
     ListenComponent,
     EditComponent,
-    HeaderComponent
+    HeaderComponent,
+    PublishPartComponent
   ],
   imports: [
     BrowserModule,

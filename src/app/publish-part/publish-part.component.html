@@ -1,1 +1,1 @@
-<p>publish-part works!</p>
+<p (click)="publish(msg)" *ngFor="let msg of messages" [class.animate]="toAnimate === msg">{{ msg }}</p>

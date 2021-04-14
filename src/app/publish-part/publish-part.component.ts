@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-publish-part',
@@ -7,10 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishPartComponent implements OnInit {
 
-  constructor() {
+  @Input() color = '';
+  messages: string[] = [];
+  toAnimate = '';
+
+  constructor(private db: AngularFireDatabase) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.getMessages();
+  }
+
+  async getMessages(): Promise<void> {
+    const messages: Observable<any[]> = this.db.list('dormunication/messages').valueChanges();
+
+    messages.subscribe(data => {
+      this.messages = data;
+    });
+  }
+
+  async publish(message: string): Promise<void> {
+    await this.db.object('dormunication/message').set({message, color: this.color}).then(() => {
+
+      this.toAnimate = message;
+
+      setTimeout(() => {
+        this.toAnimate = '';
+      }, 750);
+    });
   }
 
 }

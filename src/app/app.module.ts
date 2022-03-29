@@ -14,6 +14,7 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { PublishPartComponent } from './publish-part/publish-part.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { PublishPartComponent } from './publish-part/publish-part.component';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
